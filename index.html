@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aspire Influence — Where Brands Meet the Right Creators</title>
+<meta name="description" content="Aspire Influence connects brands with vetted, high-performing creators and manages the entire campaign — strategy, matching, execution, and payments — end to end." />
+<meta property="og:title" content="Aspire Influence — Influencer Marketing, Done Right" />
+<meta property="og:description" content="We're the bridge between brands and creators. Verified talent, ROI-driven campaigns, transparent pricing." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#5B5FEF;
+    --secondary:#8A5CF6;
+    --accent:#00D4FF;
+    --bg:#F8FAFC;
+    --dark:#0F172A;
+    --dark-2:#141B2E;
+    --text-1:#111827;
+    --text-2:#6B7280;
+    --line:#E6E9F2;
+    --grad: linear-gradient(120deg, var(--primary), var(--secondary));
+    --grad-glow: radial-gradient(circle, rgba(91,95,239,.35), transparent 70%);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text-1);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.font-display{
+    font-family:'Manrope', sans-serif;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  p{margin:0; color:var(--text-2); line-height:1.65;}
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  .wrap{max-width:1240px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--primary);
+  }
+  .eyebrow::before{content:''; width:16px; height:2px; background:var(--grad); border-radius:2px;}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    position:relative; overflow:hidden;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:14px 28px; border-radius:999px; font-weight:600; font-size:15px;
+    border:1px solid transparent; transition:transform .25s ease, box-shadow .25s ease;
+    white-space:nowrap;
+  }
+  .btn:active{transform:scale(.97);}
+  .btn-primary{
+    background:var(--grad); color:#fff;
+    box-shadow:0 8px 24px -6px rgba(91,95,239,.55);
+  }
+  .btn-primary:hover{ box-shadow:0 12px 32px -6px rgba(91,95,239,.7); transform:translateY(-2px);}
+  .btn-ghost{
+    background:rgba(255,255,255,.6); color:var(--text-1); border:1px solid var(--line);
+    backdrop-filter:blur(8px);
+  }
+  .btn-ghost:hover{ border-color:var(--primary); color:var(--primary); transform:translateY(-2px);}
+  .btn-ghost-dark{
+    background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(8px);
+  }
+  .btn-ghost-dark:hover{border-color:rgba(255,255,255,.5); transform:translateY(-2px);}
+  .ripple{position:absolute; border-radius:50%; background:rgba(255,255,255,.55); transform:scale(0); animation:rip .6s ease-out; pointer-events:none;}
+  @keyframes rip{ to{ transform:scale(3); opacity:0; } }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    padding:16px 0; transition:background .3s ease, box-shadow .3s ease, padding .3s ease;
+  }
+  header.scrolled{ background:rgba(248,250,252,.75); backdrop-filter:blur(14px); box-shadow:0 1px 0 var(--line); padding:10px 0;}
+  nav{display:flex; align-items:center; justify-content:space-between;}
+  .logo{display:flex; align-items:center; gap:9px; font-weight:800; font-size:19px; font-family:'Manrope';}
+  .logo-mark{width:30px; height:30px; border-radius:9px; background:var(--grad); position:relative;}
+  .logo-mark::after{content:''; position:absolute; inset:8px; border-radius:50%; background:#fff; opacity:.9;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:14.5px; font-weight:600; color:var(--text-2); transition:color .2s;}
+  .nav-links a:hover{color:var(--primary);}
+  .nav-cta{display:flex; gap:12px; align-items:center;}
+  .menu-btn{display:none; background:none; border:none; padding:6px;}
+  @media (max-width:900px){
+    .nav-links, .nav-cta .btn-ghost{display:none;}
+    .menu-btn{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; padding:170px 0 120px; overflow:hidden;
+    background:
+      radial-gradient(700px 500px at 85% -10%, rgba(0,212,255,.16), transparent 60%),
+      radial-gradient(600px 500px at -5% 20%, rgba(138,92,246,.14), transparent 60%);
+  }
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center;}
+  @media(max-width:980px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{font-size:clamp(34px, 4.6vw, 60px); font-weight:800; line-height:1.06;}
+  .hero h1 span{
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{margin-top:22px; font-size:17.5px; max-width:520px;}
+  .hero-cta{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .trust-row{display:flex; align-items:center; gap:18px; margin-top:44px; flex-wrap:wrap;}
+  .avatars{display:flex;}
+  .avatars span{
+    width:34px; height:34px; border-radius:50%; border:2px solid var(--bg); margin-left:-10px;
+    background:var(--grad); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:700;
+  }
+  .avatars span:first-child{margin-left:0;}
+  .trust-row small{color:var(--text-2); font-weight:600; font-size:13px;}
+
+  /* Signature visual: the "Match Bridge" — two node clusters (Brands / Creators) converging */
+  .bridge{ position:relative; height:460px; }
+  .bridge-panel{
+    position:absolute; inset:0; border-radius:28px;
+    background:linear-gradient(160deg, rgba(255,255,255,.75), rgba(255,255,255,.35));
+    border:1px solid rgba(255,255,255,.6);
+    backdrop-filter:blur(16px);
+    box-shadow:0 30px 60px -20px rgba(91,95,239,.35);
+    overflow:hidden;
+  }
+  .bridge svg{position:absolute; inset:0; width:100%; height:100%;}
+  .node-card{
+    position:absolute; padding:12px 16px; border-radius:14px; background:#fff;
+    border:1px solid var(--line); box-shadow:0 14px 30px -10px rgba(15,23,42,.18);
+    font-size:12.5px; font-weight:700; display:flex; align-items:center; gap:8px;
+    animation:float 5s ease-in-out infinite;
+  }
+  .node-card .dot{width:8px; height:8px; border-radius:50%;}
+  .node-card small{display:block; font-weight:500; color:var(--text-2); font-size:10.5px;}
+  @keyframes float{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  .pulse-dot{ animation:pulseDot 2.4s ease-in-out infinite; }
+  @keyframes pulseDot{ 0%{opacity:.3;} 50%{opacity:1;} 100%{opacity:.3;} }
+  .center-badge{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:86px; height:86px; border-radius:50%; background:var(--grad);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:12px; text-align:center;
+    box-shadow:0 20px 40px -12px rgba(91,95,239,.6);
+  }
+
+  /* ---------- Trusted By ---------- */
+  .trusted{ padding:50px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .trusted p{ text-align:center; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--text-2); margin-bottom:28px;}
+  .logo-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:28px; filter:grayscale(1); opacity:.55; }
+  .logo-row span{font-family:'Manrope'; font-weight:800; font-size:19px; color:var(--text-1);}
+
+  /* ---------- Sections ---------- */
+  section{ padding:112px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(28px,3.4vw,42px); font-weight:800; margin-top:14px; line-height:1.15;}
+  .section-head p{ margin-top:16px; font-size:16.5px; }
+  .center{ text-align:center; margin-left:auto; margin-right:auto; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* What we do */
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+  @media(max-width:900px){ .grid-3{grid-template-columns:1fr;} }
+  .glass-card{
+    background:rgba(255,255,255,.7); border:1px solid var(--line); border-radius:20px; padding:34px;
+    backdrop-filter:blur(10px); transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .glass-card:hover{ transform:translateY(-8px); box-shadow:0 24px 50px -18px rgba(91,95,239,.28); border-color:rgba(91,95,239,.35); }
+  .icon-tile{
+    width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+    background:var(--grad); color:#fff; margin-bottom:20px;
+  }
+  .glass-card h3{ font-size:19px; font-weight:700; margin-bottom:10px; }
+
+  /* How it works */
+  .steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; position:relative; }
+  @media(max-width:900px){ .steps{grid-template-columns:1fr 1fr;} }
+  @media(max-width:560px){ .steps{grid-template-columns:1fr;} }
+  .step-card{
+    background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px 22px; position:relative;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .step-card:hover{ transform:translateY(-6px); box-shadow:0 20px 40px -16px rgba(15,23,42,.16); }
+  .step-num{
+    font-family:'Manrope'; font-weight:800; font-size:13px; color:#fff; background:var(--grad);
+    width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .step-card h4{ font-size:16px; font-weight:700; margin-bottom:8px; }
+  .step-card p{ font-size:14px; }
+
+  /* Why choose - icon list */
+  .why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  @media(max-width:980px){ .why-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .why-grid{grid-template-columns:1fr;} }
+  .why-item{ display:flex; gap:14px; align-items:flex-start; padding:20px; border-radius:16px; transition:background .25s ease;}
+  .why-item:hover{ background:#fff; box-shadow:0 12px 30px -18px rgba(15,23,42,.2); }
+  .check{
+    flex:none; width:30px; height:30px; border-radius:9px; background:rgba(91,95,239,.1); color:var(--primary);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px;
+  }
+  .why-item h4{ font-size:15px; font-weight:700; margin-bottom:4px; }
+  .why-item p{ font-size:13.5px; }
+
+  /* Stats - dark section */
+  .stats-section{ background:var(--dark); color:#fff; position:relative; overflow:hidden; }
+  .stats-section::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(600px 300px at 15% 10%, rgba(91,95,239,.35), transparent 60%),
+               radial-gradient(600px 300px at 85% 90%, rgba(0,212,255,.22), transparent 60%);
+  }
+  .stats-section .wrap{ position:relative; }
+  .stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; }
+  @media(max-width:900px){ .stats-grid{grid-template-columns:1fr 1fr;} }
+  .stat-num{ font-family:'Manrope'; font-size:clamp(32px,4vw,48px); font-weight:800; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .stat-label{ margin-top:8px; color:#94A3B8; font-size:13.5px; font-weight:600; }
+
+  /* Creators */
+  .creator-scroll{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  @media(max-width:980px){ .creator-scroll{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .creator-scroll{grid-template-columns:1fr;} }
+  .creator-card{ background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden; transition:transform .3s ease, box-shadow .3s ease; }
+  .creator-card:hover{ transform:translateY(-8px); box-shadow:0 24px 48px -18px rgba(15,23,42,.22); }
+  .creator-photo{
+    height:150px; background:var(--grad); position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .creator-photo span{ font-family:'Manrope'; font-weight:800; font-size:26px; color:#fff; }
+  .creator-cat{ position:absolute; top:12px; left:12px; background:rgba(255,255,255,.9); font-size:11px; font-weight:700; padding:5px 10px; border-radius:999px; color:var(--text-1); }
+  .creator-body{ padding:18px 20px 22px; }
+  .creator-body h4{ font-size:15.5px; font-weight:700; }
+  .creator-body .handle{ font-size:12.5px; color:var(--text-2); margin-top:2px; }
+  .creator-stats{ display:flex; justify-content:space-between; margin-top:16px; padding-top:14px; border-top:1px solid var(--line); }
+  .creator-stats div{ text-align:left; }
+  .creator-stats b{ font-size:14.5px; font-family:'Manrope'; }
+  .creator-stats small{ display:block; font-size:11px; color:var(--text-2); font-weight:600; text-transform:uppercase; letter-spacing:.04em;}
+
+  /* Testimonials */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:980px){ .testi-grid{grid-template-columns:1fr;} }
+  .testi-card{ background:#fff; border:1px solid var(--line); border-radius:20px; padding:30px; }
+  .stars{ color:#F5A524; font-size:14px; letter-spacing:2px; margin-bottom:14px; }
+  .testi-quote{ font-size:15px; color:var(--text-1); line-height:1.7; }
+  .testi-person{ display:flex; align-items:center; gap:12px; margin-top:22px; }
+  .testi-avatar{ width:42px; height:42px; border-radius:50%; background:var(--grad); flex:none; }
+  .testi-person b{ font-size:14px; display:block; }
+  .testi-person small{ font-size:12.5px; color:var(--text-2); }
+
+  /* Services */
+  .service-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:16px; }
+  @media(max-width:980px){ .service-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(max-width:640px){ .service-grid{grid-template-columns:repeat(2,1fr);} }
+  .service-pill{
+    border:1px solid var(--line); background:#fff; border-radius:16px; padding:22px 18px;
+    transition:all .25s ease; font-weight:700; font-size:14px;
+  }
+  .service-pill:hover{ background:var(--grad); color:#fff; border-color:transparent; transform:translateY(-4px); }
+
+  /* Why brands love us - split */
+  .love-split{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+  @media(max-width:900px){ .love-split{grid-template-columns:1fr;} }
+  .love-list li{ display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line); align-items:flex-start;}
+  .love-list li:last-child{border-bottom:none;}
+  .love-list h4{ font-size:15px; font-weight:700; }
+  .love-list p{ font-size:13.5px; margin-top:3px;}
+  .love-visual{
+    border-radius:24px; height:420px; background:var(--dark); position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .love-visual::before{ content:''; position:absolute; inset:0; background:radial-gradient(400px 300px at 50% 30%, rgba(0,212,255,.25), transparent 70%); }
+  .love-visual .ring{ position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.15); }
+  .love-visual .r1{ width:180px; height:180px; }
+  .love-visual .r2{ width:280px; height:280px; }
+  .love-visual .r3{ width:380px; height:380px; }
+  .love-visual b{ position:relative; color:#fff; font-family:'Manrope'; font-size:44px; font-weight:800; }
+
+  /* FAQ */
+  .faq{ max-width:760px; margin:0 auto; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-q{
+    width:100%; background:none; border:none; text-align:left; padding:22px 4px;
+    display:flex; justify-content:space-between; align-items:center; font-weight:700; font-size:15.5px; color:var(--text-1);
+  }
+  .faq-q .plus{ transition:transform .3s ease; flex:none; margin-left:16px; color:var(--primary); font-size:20px; font-weight:400;}
+  .faq-item.open .plus{ transform:rotate(45deg); }
+  .faq-a{ max-height:0; overflow:hidden; transition:max-height .35s ease; }
+  .faq-a p{ padding:0 4px 22px; font-size:14.5px; }
+
+  /* Final CTA */
+  .final-cta{
+    position:relative; margin:0 24px; border-radius:32px; padding:90px 40px; text-align:center; overflow:hidden;
+    background:var(--dark);
+  }
+  .final-cta::before{ content:''; position:absolute; inset:0; background:radial-gradient(600px 400px at 50% 0%, rgba(91,95,239,.4), transparent 70%); }
+  .final-cta .wrap{ position:relative; }
+  .final-cta h2{ color:#fff; font-size:clamp(28px,4vw,44px); font-weight:800; max-width:640px; margin:0 auto; }
+  .final-cta p{ color:#94A3B8; max-width:520px; margin:18px auto 0; font-size:16px; }
+  .final-cta-btns{ display:flex; gap:14px; justify-content:center; margin-top:36px; flex-wrap:wrap; }
+
+  /* Footer */
+  footer{ padding:80px 0 30px; background:var(--dark); color:#94A3B8; margin-top:60px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr repeat(4,1fr); gap:36px; padding-bottom:50px; border-bottom:1px solid rgba(255,255,255,.08); }
+  @media(max-width:900px){ .footer-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .footer-grid{grid-template-columns:1fr;} }
+  footer h5{ color:#fff; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:18px; }
+  footer .flogo{ display:flex; align-items:center; gap:9px; font-weight:800; font-size:19px; color:#fff; font-family:'Manrope'; margin-bottom:14px;}
+  footer li{ margin-bottom:11px; font-size:14px; }
+  footer a:hover{ color:#fff; }
+  .newsletter{ display:flex; gap:8px; margin-top:14px; }
+  .newsletter input{
+    flex:1; padding:11px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.05); color:#fff; font-size:13.5px; min-width:0;
+  }
+  .newsletter input::placeholder{ color:#64748B; }
+  .newsletter button{
+    padding:11px 16px; border-radius:10px; border:none; background:var(--grad); color:#fff; font-weight:700; font-size:13px;
+  }
+  .social-row{ display:flex; gap:10px; margin-top:18px; }
+  .social-row a{
+    width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.06); display:flex; align-items:center; justify-content:center;
+    font-size:13px; border:1px solid rgba(255,255,255,.1);
+  }
+  .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:26px; font-size:12.5px; flex-wrap:wrap; gap:10px; }
+
+  ::selection{ background:rgba(91,95,239,.25); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="wrap">
+    <a href="#top" class="logo"><span class="logo-mark"></span>Aspire Influence</a>
+    <div class="nav-links">
+      <a href="#what-we-do">What We Do</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#creators">Creators</a>
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#final-cta" class="btn btn-ghost">Get Started</a>
+      <a href="#final-cta" class="btn btn-primary">Book a Consultation</a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Influencer Marketing Agency</span>
+        <h1 style="margin-top:16px;">Connecting brands with influencers that drive <span>real results</span></h1>
+        <p class="lead">Grow through authentic creator partnerships. We find, vet, and manage the right influencers for your brand — and help creators land paid collaborations worth their audience.</p>
+        <div class="hero-cta">
+          <a href="#final-cta" class="btn btn-primary" data-ripple>Get Started</a>
+          <a href="#final-cta" class="btn btn-ghost" data-ripple>Book Free Consultation</a>
+        </div>
+        <div class="trust-row">
+          <div class="avatars">
+            <span>JL</span><span>MP</span><span>RK</span><span>SA</span>
+          </div>
+          <small>Trusted by 500+ brands &amp; 1,000+ verified creators</small>
+        </div>
+      </div>
+
+      <div class="bridge reveal">
+        <div class="bridge-panel">
+          <svg viewBox="0 0 460 460" preserveAspectRatio="none">
+            <line x1="80" y1="100" x2="230" y2="230" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <line x1="80" y1="360" x2="230" y2="230" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <line x1="380" y1="90" x2="230" y2="230" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <line x1="380" y1="350" x2="230" y2="230" stroke="url(#g1)" stroke-width="1.5" stroke-dasharray="4 5"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#5B5FEF"/>
+                <stop offset="100%" stop-color="#00D4FF"/>
+              </linearGradient>
+            </defs>
+            <circle cx="80" cy="100" r="4" fill="#5B5FEF" class="pulse-dot"/>
+            <circle cx="80" cy="360" r="4" fill="#8A5CF6" class="pulse-dot"/>
+            <circle cx="380" cy="90" r="4" fill="#00D4FF" class="pulse-dot"/>
+            <circle cx="380" cy="350" r="4" fill="#5B5FEF" class="pulse-dot"/>
+          </svg>
+
+          <div class="node-card" style="top:14%; left:5%; animation-delay:.2s;">
+            <span class="dot" style="background:#5B5FEF;"></span>Nova Skincare <small>Beauty Brand</small>
+          </div>
+          <div class="node-card" style="bottom:10%; left:4%; animation-delay:1s;">
+            <span class="dot" style="background:#8A5CF6;"></span>Urban Fit Co. <small>D2C Apparel</small>
+          </div>
+          <div class="node-card" style="top:8%; right:4%; animation-delay:.6s;">
+            <span class="dot" style="background:#00D4FF;"></span>@rileycooks <small>218K · 6.4% ER</small>
+          </div>
+          <div class="node-card" style="bottom:8%; right:5%; animation-delay:1.4s;">
+            <span class="dot" style="background:#5B5FEF;"></span>@techwithlea <small>94K · 8.1% ER</small>
+          </div>
+
+          <div class="center-badge">MATCHED<br/>IN 48H</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED BY -->
+  <section class="trusted" style="padding-top:0;">
+    <div class="wrap">
+      <p>Trusted by growing brands worldwide</p>
+      <div class="logo-row">
+        <span>NORTHPEAK</span><span>Lumio</span><span>VELVET&nbsp;&amp;&nbsp;CO</span><span>ORBIT</span><span>Fernway</span><span>ATLASWEAR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section id="what-we-do">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What We Do</span>
+        <h2>One partner for the entire influencer lifecycle</h2>
+        <p>From the first brief to the final payout, we run the parts of influencer marketing that are hardest to do well.</p>
+      </div>
+      <div class="grid-3">
+        <div class="glass-card reveal">
+          <div class="icon-tile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Brand Partnerships</h3>
+          <p>We identify and vet the creators whose audience, tone, and values actually match your brand — not just follower count.</p>
+        </div>
+        <div class="glass-card reveal" style="transition-delay:.1s;">
+          <div class="icon-tile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Campaign Management</h3>
+          <p>Briefs, contracts, content approvals, posting schedules, and reporting — handled end to end by a dedicated manager.</p>
+        </div>
+        <div class="glass-card reveal" style="transition-delay:.2s;">
+          <div class="icon-tile">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Creator Growth</h3>
+          <p>We bring vetted creators paid collaborations with brands that fit their niche, on terms that respect their rates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>From brief to results, in four steps</h2>
+        <p>A clear, typed process — designed so nothing falls through the cracks.</p>
+      </div>
+      <div class="steps">
+        <div class="step-card reveal"><div class="step-num">01</div><h4>Submit your requirement</h4><p>Tell us your goals, budget, and target audience through a short intake call or form.</p></div>
+        <div class="step-card reveal" style="transition-delay:.1s;"><div class="step-num">02</div><h4>We match the perfect creator</h4><p>Our team shortlists vetted creators based on fit, engagement quality, and audience overlap.</p></div>
+        <div class="step-card reveal" style="transition-delay:.2s;"><div class="step-num">03</div><h4>Campaign launch</h4><p>Content is briefed, approved, and published on schedule — we manage every touchpoint.</p></div>
+        <div class="step-card reveal" style="transition-delay:.3s;"><div class="step-num">04</div><h4>Track results &amp; scale</h4><p>Live performance dashboards show what's working, so we can double down and scale it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why Aspire Influence</span>
+        <h2>Built for brands that need results, not vanity metrics</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Verified Creators</h4><p>Every creator is vetted for authentic engagement.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>ROI-Focused Campaigns</h4><p>Every campaign is built around a measurable outcome.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Dedicated Campaign Managers</h4><p>One point of contact, start to finish.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Transparent Pricing</h4><p>No hidden fees, no surprise mark-ups.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Data-Driven Strategy</h4><p>Decisions backed by performance data, not guesswork.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Fast Campaign Launch</h4><p>Most campaigns go live within two weeks.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Quality Brand Partnerships</h4><p>We only take on brands we believe in.</p></div></div>
+        <div class="why-item reveal"><div class="check">✓</div><div><h4>Performance Analytics</h4><p>Clear reporting tied back to your original goals.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="reveal"><div class="stat-num" data-count="1000" data-suffix="+">0</div><div class="stat-label">Verified Creators</div></div>
+        <div class="reveal" style="transition-delay:.1s;"><div class="stat-num" data-count="500" data-suffix="+">0</div><div class="stat-label">Campaigns Managed</div></div>
+        <div class="reveal" style="transition-delay:.2s;"><div class="stat-num" data-count="95" data-suffix="%">0</div><div class="stat-label">Client Satisfaction</div></div>
+        <div class="reveal" style="transition-delay:.3s;"><div class="stat-num" data-count="50" data-suffix="M+">0</div><div class="stat-label">Audience Reach</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED CREATORS -->
+  <section id="creators">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Featured Creators</span>
+        <h2>Vetted talent across every major category</h2>
+      </div>
+      <div class="creator-scroll">
+        <div class="creator-card reveal">
+          <div class="creator-photo"><span class="creator-cat">Fashion</span><span>AR</span></div>
+          <div class="creator-body"><h4>Ava Rhodes</h4><div class="handle">@avarhodes</div>
+            <div class="creator-stats"><div><b>312K</b><small>Followers</small></div><div><b>5.8%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.05s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#8A5CF6,#00D4FF);"><span class="creator-cat">Technology</span><span>DK</span></div>
+          <div class="creator-body"><h4>Devon Kaur</h4><div class="handle">@techwithdevon</div>
+            <div class="creator-stats"><div><b>94K</b><small>Followers</small></div><div><b>8.1%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.1s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#00D4FF,#5B5FEF);"><span class="creator-cat">Fitness</span><span>MJ</span></div>
+          <div class="creator-body"><h4>Marcus James</h4><div class="handle">@fit.marcus</div>
+            <div class="creator-stats"><div><b>187K</b><small>Followers</small></div><div><b>6.9%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.15s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#5B5FEF,#8A5CF6);"><span class="creator-cat">Food</span><span>RC</span></div>
+          <div class="creator-body"><h4>Riley Cooks</h4><div class="handle">@rileycooks</div>
+            <div class="creator-stats"><div><b>218K</b><small>Followers</small></div><div><b>6.4%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#00D4FF,#8A5CF6);"><span class="creator-cat">Lifestyle</span><span>SN</span></div>
+          <div class="creator-body"><h4>Sofia Novak</h4><div class="handle">@sofia.novak</div>
+            <div class="creator-stats"><div><b>145K</b><small>Followers</small></div><div><b>7.2%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.05s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#8A5CF6,#5B5FEF);"><span class="creator-cat">Travel</span><span>JL</span></div>
+          <div class="creator-body"><h4>Jonah Lee</h4><div class="handle">@jonahwanders</div>
+            <div class="creator-stats"><div><b>276K</b><small>Followers</small></div><div><b>5.1%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.1s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#5B5FEF,#00D4FF);"><span class="creator-cat">Finance</span><span>PT</span></div>
+          <div class="creator-body"><h4>Priya Tandon</h4><div class="handle">@moneywithpriya</div>
+            <div class="creator-stats"><div><b>68K</b><small>Followers</small></div><div><b>9.3%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+        <div class="creator-card reveal" style="transition-delay:.15s;">
+          <div class="creator-photo" style="background:linear-gradient(120deg,#8A5CF6,#00D4FF);"><span class="creator-cat">Beauty</span><span>EM</span></div>
+          <div class="creator-body"><h4>Elena Marsh</h4><div class="handle">@elenamarsh</div>
+            <div class="creator-stats"><div><b>402K</b><small>Followers</small></div><div><b>4.9%</b><small>Engagement</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Brand Success Stories</span>
+        <h2>Results our clients actually feel</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">Aspire Influence found creators who genuinely understood our product. Our campaign outperformed every paid channel we'd tried before.</p>
+          <div class="testi-person"><div class="testi-avatar"></div><div><b>Hannah Ortiz</b><small>Founder, Nova Skincare</small></div></div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.1s;">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">The reporting alone was worth it. We finally knew which creators were actually driving conversions, not just impressions.</p>
+          <div class="testi-person"><div class="testi-avatar"></div><div><b>Marcus Webb</b><small>Growth Lead, Urban Fit Co.</small></div></div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.2s;">
+          <div class="stars">★★★★★</div>
+          <p class="testi-quote">From first call to launch took under two weeks. Our campaign manager handled everything we didn't have time for.</p>
+          <div class="testi-person"><div class="testi-avatar"></div><div><b>Priya Anand</b><small>Marketing Director, Fernway</small></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Services</span>
+        <h2>Every capability a modern campaign needs</h2>
+      </div>
+      <div class="service-grid">
+        <div class="service-pill reveal">Influencer Marketing</div>
+        <div class="service-pill reveal" style="transition-delay:.03s;">UGC Campaigns</div>
+        <div class="service-pill reveal" style="transition-delay:.06s;">Brand Collaborations</div>
+        <div class="service-pill reveal" style="transition-delay:.09s;">Campaign Strategy</div>
+        <div class="service-pill reveal" style="transition-delay:.12s;">Content Marketing</div>
+        <div class="service-pill reveal" style="transition-delay:.15s;">Creator Management</div>
+        <div class="service-pill reveal" style="transition-delay:.18s;">Social Media Growth</div>
+        <div class="service-pill reveal" style="transition-delay:.21s;">Paid Promotions</div>
+        <div class="service-pill reveal" style="transition-delay:.24s;">Performance Analytics</div>
+        <div class="service-pill reveal" style="transition-delay:.27s;">Brand Consulting</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY BRANDS LOVE US -->
+  <section style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap love-split">
+      <div class="reveal">
+        <span class="eyebrow">Why Brands Love Us</span>
+        <h2 style="font-size:32px; font-weight:800; margin-top:14px;">Marketing that respects your budget and your brand</h2>
+        <ul class="love-list" style="margin-top:24px;">
+          <li><h4>Higher ROI</h4><p>Campaigns are built around measurable outcomes, not reach alone.</p></li>
+          <li><h4>Real Engagement</h4><p>Every creator is screened for authentic, non-inflated audiences.</p></li>
+          <li><h4>Creative Campaigns</h4><p>Content that fits the creator's voice performs better than scripted ads.</p></li>
+          <li><h4>Transparent Communication</h4><p>You always know what's happening and why.</p></li>
+          <li><h4>Fast Execution</h4><p>Most campaigns launch within two weeks of kickoff.</p></li>
+        </ul>
+      </div>
+      <div class="love-visual reveal">
+        <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+        <b>4.9/5</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item reveal">
+          <button class="faq-q">How does the matching process work? <span class="plus">+</span></button>
+          <div class="faq-a"><p>We review your brief, shortlist vetted creators based on audience fit and engagement quality, and share options for your approval before any outreach happens.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">What's the minimum budget to work with Aspire Influence? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Budgets vary by campaign scope and creator tier. We'll recommend a realistic range during your free consultation based on your goals.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">How do you vet creators? <span class="plus">+</span></button>
+          <div class="faq-a"><p>We check audience authenticity, historical engagement rates, content quality, and past brand-fit before any creator joins our network.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">How long does a typical campaign take to launch? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Most campaigns go from kickoff to live content within two weeks, depending on creator availability and approval turnaround.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Do you handle payments to creators? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes. We manage contracts and payouts directly, so brands and creators each have a single point of contact.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Can creators apply to join the network? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes — creators can apply directly through our "Join as a Creator" link. We review applications on a rolling basis.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">What platforms do you work across? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Instagram, YouTube, TikTok, and LinkedIn, with creators spanning micro to macro audience sizes.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">How do you measure campaign performance? <span class="plus">+</span></button>
+          <div class="faq-a"><p>We track reach, engagement, click-through, and conversion where available, and share results through a live dashboard.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Is there a contract or ongoing commitment? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No long-term lock-in is required. Many brands start with a single campaign before scaling into an ongoing partnership.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="final-cta" style="padding-top:0; padding-bottom:0;">
+    <div class="final-cta reveal">
+      <div class="wrap">
+        <h2>Ready to grow with the right influencers?</h2>
+        <p>Whether you're a brand looking to scale or a creator looking for exciting collaborations, Aspire Influence is your trusted partner.</p>
+        <div class="final-cta-btns">
+          <a href="#" class="btn btn-primary" data-ripple>Book a Free Consultation</a>
+          <a href="#" class="btn btn-ghost-dark" data-ripple>Join as a Creator</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="flogo"><span class="logo-mark"></span>Aspire Influence</div>
+        <p style="font-size:14px; max-width:280px;">The bridge between brands and creators — matching, managing, and measuring influencer campaigns end to end.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="LinkedIn">IN</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="TikTok">TT</a>
+        </div>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul><li><a href="#">About</a></li><li><a href="#services">Services</a></li><li><a href="#creators">Creators</a></li><li><a href="#">Brands</a></li></ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul><li><a href="mailto:hello@aspireinfluence.com">hello@aspireinfluence.com</a></li><li><a href="tel:+11234567890">+1 (123) 456-7890</a></li></ul>
+      </div>
+      <div>
+        <h5>Stay Updated</h5>
+        <p style="font-size:13px;">Campaign insights, once a month.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email"/>
+          <button>Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Aspire Influence. All rights reserved.</span>
+      <span>Made for brands and creators who want more than impressions.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Animated counters
+  const counters = document.querySelectorAll('.stat-num');
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        let cur = 0;
+        const step = Math.max(1, Math.ceil(target / 60));
+        const tick = () => {
+          cur += step;
+          if(cur >= target){ el.textContent = target + suffix; return; }
+          el.textContent = cur + suffix;
+          requestAnimationFrame(tick);
+        };
+        tick();
+        countIO.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => countIO.observe(c));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Button ripple
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'ripple';
+      const size = Math.max(rect.width, rect.height);
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 650);
+    });
+  });
+
+  // Mobile menu (simple toggle to nav links panel)
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', () => {
+    const nav = document.querySelector('.nav-links');
+    const open = nav.style.display === 'flex';
+    nav.style.display = open ? 'none' : 'flex';
+    nav.style.cssText += open ? '' : 'position:fixed; top:64px; left:16px; right:16px; background:#fff; flex-direction:column; padding:20px; border-radius:16px; box-shadow:0 20px 50px -20px rgba(15,23,42,.3); gap:16px; z-index:200;';
+  });
+</script>
+
+</body>
+</html>
